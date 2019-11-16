@@ -188,7 +188,10 @@ def detect_birthday(text):
   month = int(birthday_date_text_match.groups()[0].split('月')[0])
   day = int(birthday_date_text_match.groups()[0].split('月')[1].split('日')[0])
   print('year: ' + str(year) + ' month: ' + str(month) + ' day: ' + str(day))
-  return datetime.date(year, month, day)
+  try:
+    return datetime.date(year, month, day)
+  except ValueError:
+    return None
 
 if __name__ == '__main__':
   main()
